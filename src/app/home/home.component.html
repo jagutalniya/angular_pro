@@ -1,0 +1,31 @@
+<app-header></app-header>
+
+<div class="container mt-5">
+    <div class="text-center">
+        <h1 class="display-5 fw-bold text-primary">Welcome to Student Management System</h1>
+        <p class="lead text-muted">Manage multiple schools, teachers, and students — all in one platform.</p>
+    </div>
+    <div class="row mt-4 justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow text-center p-4">
+                <h4 class="mb-3 text-success">Login As</h4>
+                <div class="d-grid gap-3">
+                    <a routerLink="/superadmin/login" class="btn btn-outline-dark btn-lg">
+                        🧑‍💼 Super Admin
+                    </a>
+                    <a routerLink="/school/login" class="btn btn-outline-primary btn-lg">
+                        🏫 School Admin
+                    </a>
+                    <a routerLink="/teacher/login" class="btn btn-outline-warning btn-lg">
+                        👨‍🏫 Teacher
+                    </a>
+                    <a routerLink="/student/login" class="btn btn-outline-success btn-lg">
+                        🎓 Student
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <app-footer></app-footer>

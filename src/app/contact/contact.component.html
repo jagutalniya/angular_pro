@@ -1,0 +1,29 @@
+<app-header></app-header>
+
+<div class="container mt-5">
+  <div class="card shadow-sm p-4 border-0">
+    <h2 class="text-primary mb-3">Contact Us</h2>
+    <p>If you have any questions, feedback, or need technical help, feel free to reach out.</p>
+
+    <form (ngSubmit)="onSubmit()" >
+      <div class="mb-3">
+        <label class="form-label">Your Name</label>
+        <input type="text" [(ngModel)]="formData.name" name="name" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" [(ngModel)]="formData.email" name="email" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Message</label>
+        <textarea name="message" [(ngModel)]="formData.message" class="form-control" rows="5" required></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+  </div>
+</div>
+
+<app-footer></app-footer>

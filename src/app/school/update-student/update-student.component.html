@@ -1,0 +1,31 @@
+<app-header></app-header>
+
+<div class="container mt-4">
+  <h3 class="mb-3 text-primary">✏️ Edit Student</h3>
+  <form (ngSubmit)="updateStudent()">
+    <div class="mb-3">
+      <label>Name:</label>
+      <input class="form-control" [(ngModel)]="student.name" name="name" required>
+    </div>
+    <div class="mb-3">
+      <label>Class:</label>
+      <input class="form-control" [(ngModel)]="student.class" name="class" required>
+    </div>
+    <div class="mb-3">
+      <label>Gender:</label>
+      <select class="form-control" [(ngModel)]="student.gender" name="gender" required>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label>Address:</label>
+      <textarea class="form-control" [(ngModel)]="student.address" name="address" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a class="btn btn-secondary ms-2" routerLink="/school/students">Back</a>
+  </form>
+</div>
+
+
+<app-footer></app-footer>

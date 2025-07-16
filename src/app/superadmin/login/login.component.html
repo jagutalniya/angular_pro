@@ -1,0 +1,29 @@
+<app-header></app-header>
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow p-4">
+        <h3 class="text-center text-primary mb-4">Super Admin Login</h3>
+
+        <form (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label>Username</label>
+            <input [(ngModel)]="loginData.username" name="username" type="text" class="form-control" required />
+          </div>
+
+          <div class="mb-3">
+            <label>Password</label>
+            <input [(ngModel)]="loginData.password" name="password" type="password" class="form-control" required />
+          </div>
+
+          <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+          <button class="btn btn-primary w-100">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

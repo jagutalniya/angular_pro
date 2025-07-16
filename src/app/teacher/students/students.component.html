@@ -1,0 +1,63 @@
+<app-header></app-header>
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4>📋Manage Students You Added</h4>
+        <a routerLink="/teacher/dashboard" class="btn btn-secondary ms-2">⬅ Back</a>
+    </div>
+    <form (submit)="onSearch()" class="input-group mb-3">
+        <input type="text" [(ngModel)]="search" name="search" class="form-control" placeholder="🔍 Search students...">
+        <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+
+    <div *ngIf="message" class="alert alert-danger">{{ message }}</div>
+
+    <table class="table table-bordered table-striped" *ngIf="students.length > 0; else noStudents">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Class</th>
+                <th>Gender</th>
+                <th>Address</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let s of students; index as i">
+                <td>{{ i + 1 + ((page - 1) * 10) }}</td>
+                <td>{{ s.name }}</td>
+                <td>{{ s.username }}</td>
+                <td>{{ s.class }}</td>
+                <td>{{ s.gender }}</td>
+                <td>{{ s.address }}</td>
+                <td>
+                    <a [routerLink]="['/teacher/update-student', s.id]" class="btn btn-sm btn-warning">Edit</a>
+                    <button (click)="confirmDelete(s.id)" class="btn btn-sm btn-danger ms-2">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ng-template #noStudents>
+        <div class="text-danger text-center">No students found.</div>
+    </ng-template>
+
+    <nav *ngIf="totalPages > 1" class="mt-3">
+        <ul class="pagination justify-content-center">
+            <li class="page-item" [class.disabled]="page === 1">
+                <a class="page-link" (click)="setPage(page - 1)">«</a>
+            </li>
+            <li class="page-item" *ngFor="let p of [].constructor(totalPages); index as i"
+                [class.active]="page === i + 1">
+                <a class="page-link" (click)="setPage(i + 1)">{{ i + 1 }}</a>
+            </li>
+            <li class="page-item" [class.disabled]="page === totalPages">
+                <a class="page-link" (click)="setPage(page + 1)">»</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<app-footer></app-footer>

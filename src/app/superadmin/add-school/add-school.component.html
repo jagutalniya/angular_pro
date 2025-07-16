@@ -1,0 +1,34 @@
+<app-header></app-header>
+
+<div class="container mt-5">
+  <div class="card shadow p-4 mx-auto" style="max-width: 500px;">
+    <h3 class="text-center mb-4 text-primary">Add New School</h3>
+
+    <div *ngIf="errorMsg" class="alert alert-danger">{{ errorMsg }}</div>
+    <div *ngIf="successMsg" class="alert alert-success">{{ successMsg }}</div>
+
+    <form (ngSubmit)="addSchool()">
+      <div class="mb-3">
+        <label class="form-label">School Name</label>
+        <input [(ngModel)]="school_name" name="school_name" type="text" class="form-control">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input [(ngModel)]="username" name="username" type="text" class="form-control">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input [(ngModel)]="password" name="password" type="password" class="form-control">
+      </div>
+
+      <div class="d-flex gap-2">
+        <button type="submit" class="btn btn-success">Add School</button>
+        <button type="button" class="btn btn-secondary" routerLink="/superadmin/dashboard">Back</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<app-footer></app-footer>

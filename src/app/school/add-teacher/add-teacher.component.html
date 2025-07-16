@@ -1,0 +1,39 @@
+<app-header></app-header>
+
+
+<div class="container mt-5">
+  <h3 class="mb-4">Add New Teacher</h3>
+
+  <div *ngIf="errorMsg" class="alert alert-danger">{{ errorMsg }}</div>
+
+  <form (ngSubmit)="submitForm()">
+    <div class="mb-3">
+      <label>Username</label>
+      <input type="text" [(ngModel)]="teacher.username" name="username" class="form-control" />
+      <span class="text-danger">{{ fieldErrors.username }}</span>
+    </div>
+
+    <div class="mb-3">
+      <label>Password</label>
+      <input type="password" [(ngModel)]="teacher.password" name="password" class="form-control" />
+      <span class="text-danger">{{ fieldErrors.password }}</span>
+    </div>
+
+    <div class="mb-3">
+      <label>Full Name</label>
+      <input type="text" [(ngModel)]="teacher.name" name="name" class="form-control" />
+      <span class="text-danger">{{ fieldErrors.name }}</span>
+    </div>
+
+    <div class="mb-3">
+      <label>Subject</label>
+      <input type="text" [(ngModel)]="teacher.subject" name="subject" class="form-control" />
+      <span class="text-danger">{{ fieldErrors.subject }}</span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Add Teacher</button>
+    <a routerLink="/school/dashboard" class="btn btn-secondary ms-2">⬅ Back to Dashboard</a>
+  </form>
+</div>
+
+<app-footer></app-footer>

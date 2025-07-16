@@ -1,0 +1,51 @@
+<app-header></app-header>
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4>👨‍🎓 Manage Students</h4>
+        <a routerLink="/school/dashboard" class="btn btn-secondary ms-2">⬅ Back</a>
+    </div>
+
+    <form (ngSubmit)="onSearch()" class="input-group mb-3">
+        <input [(ngModel)]="searchTerm" name="search" class="form-control" placeholder="🔍 Search student..." />
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+    <div *ngIf="message" class="alert alert-danger">{{ message }}</div>
+
+    <div *ngIf="students.length > 0" class="table-responsive">
+        <table class="table table-bordered table-striped shadow-sm">
+            <thead class="table-light">
+                <tr>
+                    <th>#</th>
+                    <th>Username</th>
+                    <th>Name</th>
+                    <th>Class</th>
+                    <th>Gender</th>
+                    <th>Address</th>
+                    <th><small>Added By (Teacher)</small></th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let s of students; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ s.username }}</td>
+                    <td>{{ s.name }}</td>
+                    <td>{{ s.class }}</td>
+                    <td>{{ s.gender }}</td>
+                    <td>{{ s.address }}</td>
+                    <td>{{ s.teacher_name || '-' }}</td>
+                    <td>
+                        <a [routerLink]="['/school/update-student', s.id]" class="btn btn-sm btn-primary">Edit</a>
+                        <button class="btn btn-sm btn-danger ms-1" (click)="confirmDelete(s.id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+    <div *ngIf="students.length === 0 && !message" class="alert alert-warning">No students found.</div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,54 @@
+<app-header></app-header>
+
+<div class="container mt-4">
+  <h3 class="text-success mb-3">👩‍🎓 Add Student</h3>
+
+  <!-- Success Message -->
+  <div *ngIf="message" class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ message }}
+    <button type="button" class="btn-close" aria-label="Close" (click)="message = ''"></button>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="error" class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{ error }}
+    <button type="button" class="btn-close" aria-label="Close" (click)="error = ''"></button>
+  </div>
+
+  <!-- Add Student Form -->
+  <form (ngSubmit)="addStudent()" #studentForm="ngForm" novalidate>
+    <div class="mb-3">
+      <label class="form-label">Username</label>
+      <input class="form-control" [(ngModel)]="student.username" name="username" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Password</label>
+      <input type="password" class="form-control" [(ngModel)]="student.password" name="password" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Full Name</label>
+      <input class="form-control" [(ngModel)]="student.name" name="name" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Class</label>
+      <input class="form-control" [(ngModel)]="student.class" name="class" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Gender</label>
+      <select class="form-select" [(ngModel)]="student.gender" name="gender" required>
+        <option value="">-- Select Gender --</option>
+        <option>Male</option>
+        <option>Female</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Address</label>
+      <textarea class="form-control" [(ngModel)]="student.address" name="address" required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-success">➕ Add Student</button>
+    <a class="btn btn-secondary ms-2" routerLink="/teacher/dashboard">⬅ Back</a>
+  </form>
+</div>
+
+<app-footer></app-footer>

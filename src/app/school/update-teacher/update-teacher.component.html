@@ -1,0 +1,19 @@
+<app-header></app-header>
+
+<div class="container mt-5">
+  <h3>Update Teacher</h3>
+  <form (ngSubmit)="updateTeacher()">
+    <div class="mb-3">
+      <label>Name</label>
+      <input type="text" [(ngModel)]="teacher.name" name="name" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label>Subject</label>
+      <input type="text" [(ngModel)]="teacher.subject" name="subject" class="form-control" required>
+    </div>
+    <button class="btn btn-primary" type="submit">Update</button>
+    <a routerLink="/school/teachers" class="btn btn-secondary ms-2">⬅ Back</a>
+  </form>
+</div>
+
+<app-footer></app-footer>

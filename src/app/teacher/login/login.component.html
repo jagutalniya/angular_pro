@@ -1,0 +1,29 @@
+<app-header></app-header>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow p-4">
+                <h3 class="text-center mb-3 text-primary">Teacher Login</h3>
+
+                <form (ngSubmit)="login()">
+                    <div class="mb-3">
+                        <label class="form-label">Username</label>
+                        <input [(ngModel)]="username" name="username" class="form-control" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input [(ngModel)]="password" name="password" type="password" class="form-control" required />
+                    </div>
+
+                    <div *ngIf="errorMessage" class="text-danger mb-2">{{ errorMessage }}</div>
+
+                    <button type="submit" class="btn btn-success w-100">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>
